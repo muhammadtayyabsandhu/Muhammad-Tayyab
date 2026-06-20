@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { SiReact, SiNodedotjs, SiNextdotjs, SiWebflow, SiWordpress } from "react-icons/si";
 import { Code2 } from "lucide-react";
+import { MdLocationOn } from "react-icons/md";
+import { FaBriefcase } from "react-icons/fa";
 
 const borderGlowStyle = `
   // .hero-border-glow {
@@ -49,6 +51,17 @@ export default function HeroSection() {
               </p>
             </div>
 
+            <div className="mb-8 flex gap-8 items-center flex-wrap">
+              <div className="flex items-center gap-2">
+                <MdLocationOn className="w-5 h-5 text-[#902CB8]" />
+                <span className="text-gray-300">Lahore, Pakistan</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaBriefcase className="w-5 h-5 text-[#902CB8]" />
+                <span className="text-gray-300">2 Years Experience</span>
+              </div>
+            </div>
+
             <div className="flex gap-4 items-start">
               <button className="px-6 py-3 bg-[#902CB8] text-white rounded font-medium hover:bg-red-600 transition whitespace-nowrap">
                 Got a project?
@@ -90,6 +103,7 @@ export default function HeroSection() {
                 fill
                 className="object-contain"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 
