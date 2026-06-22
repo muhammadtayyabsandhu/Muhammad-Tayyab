@@ -27,7 +27,7 @@ export default function FloatingContact() {
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
       {/* Contact Box */}
-      <div className="bg-gradient-to-br from-gray-900 to-slate-900 border border-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl hover:shadow-[#902CB8]/20 transition-all duration-300 backdrop-blur-sm">
+      <div className="theme-card rounded-2xl p-4 theme-float-shadow">
         <div className="flex flex-col gap-4">
           {contactLinks.map((link) => {
             const Icon = link.icon;
@@ -38,7 +38,7 @@ export default function FloatingContact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className={`w-10 h-10 rounded-full bg-gray-800 hover:bg-[#902CB8] text-gray-400 ${link.color} flex items-center justify-center transition-all duration-300 hover:scale-110`}
+                className={`w-10 h-10 rounded-xl theme-card-inner theme-text-muted ${link.color} flex items-center justify-center transition-all duration-300 hover:scale-110`}
                 title={link.label}
               >
                 <Icon className="w-5 h-5" />
@@ -48,7 +48,7 @@ export default function FloatingContact() {
         </div>
       </div>
 
-      {/* Floating Action Button (Optional) */}
+      {/* Floating Action Button */}
       <div className="bg-gradient-to-r from-[#902CB8] to-[#a83ec4] rounded-full p-3 shadow-lg hover:shadow-xl hover:shadow-[#902CB8]/30 transition-all duration-300 cursor-pointer flex items-center justify-center">
         <svg
           className="w-6 h-6 text-white"

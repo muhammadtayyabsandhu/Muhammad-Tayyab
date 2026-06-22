@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 
 interface Project {
   id: number;
@@ -46,11 +46,31 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Weather Forecast App",
+    title: "Real-Time Chat Application",
     description:
-      "Real-time weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-    image: "/projects/weather.jpg",
-    technologies: ["Next.js", "TypeScript", "OpenWeather API", "Mapbox"],
+      "A real-time messaging app with group chats, media sharing, typing indicators, and online status built with Socket.io.",
+    image: "/projects/chat.jpg",
+    technologies: ["React.js", "Node.js", "Socket.io", "MongoDB", "Express.js"],
+    githubLink: "https://github.com",
+    liveLink: "https://example.com",
+  },
+  {
+    id: 5,
+    title: "AI-Powered Blog Platform",
+    description:
+      "A modern blogging platform with AI-generated content suggestions, rich text editor, SEO optimization, and user analytics.",
+    image: "/projects/blog.jpg",
+    technologies: ["Next.js", "OpenAI API", "PostgreSQL", "TypeScript"],
+    githubLink: "https://github.com",
+    liveLink: "https://example.com",
+  },
+  {
+    id: 6,
+    title: "Portfolio & CMS Dashboard",
+    description:
+      "A custom content management system with an admin dashboard for managing projects, blogs, and client testimonials.",
+    image: "/projects/cms.jpg",
+    technologies: ["Next.js", "Node.js", "MongoDB", "Cloudinary", "JWT"],
     githubLink: "https://github.com",
     liveLink: "https://example.com",
   },
@@ -58,46 +78,54 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section className="relative w-full py-20 bg-gradient-to-br from-slate-900 via-black to-slate-900 overflow-hidden">
+    <section className="relative w-full py-24 theme-section-3 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-gray-400 text-lg">
-            Showcasing some of my recent work and projects.
+        <div className="mb-14 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <p className="text-[#902CB8] text-sm font-semibold tracking-widest uppercase mb-3">
+              Portfolio
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold theme-text">
+              Featured Projects
+            </h2>
+          </div>
+          <p className="theme-text-dimmed text-base max-w-md">
+            A selection of projects I&apos;ve built — from concept to deployment.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-gradient-to-br from-gray-900/50 to-slate-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden hover:border-[#902CB8]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#902CB8]/10"
+              className="group relative theme-card rounded-2xl overflow-hidden"
             >
+              {/* Top accent line — only visible on hover */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#902CB8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
               {/* Project Image */}
-              <div className="relative w-full h-48 overflow-hidden bg-gray-800">
+              <div className="relative w-full h-48 overflow-hidden" style={{ background: 'var(--bg-card-inner)' }}>
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent"></div>
 
                 {/* Links Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-3 right-3 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   {project.githubLink && (
                     <a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-[#902CB8] hover:bg-white hover:text-[#902CB8] text-white rounded-full flex items-center justify-center transition-all duration-300 transform -translate-y-8 group-hover:translate-y-0"
+                      className="w-8 h-8 rounded-lg bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:bg-black/80 transition-all duration-300"
                       aria-label="GitHub"
                     >
-                      <FaGithub className="w-6 h-6" />
+                      <FaGithub className="w-3.5 h-3.5" />
                     </a>
                   )}
                   {project.liveLink && (
@@ -105,33 +133,37 @@ export default function ProjectsSection() {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-[#902CB8] hover:bg-white hover:text-[#902CB8] text-white rounded-full flex items-center justify-center transition-all duration-300 transform translate-y-8 group-hover:translate-y-0"
+                      className="w-8 h-8 rounded-lg bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:bg-black/80 transition-all duration-300"
                       aria-label="Live Project"
                     >
-                      <FaExternalLinkAlt className="w-6 h-6" />
+                      <FaExternalLinkAlt className="w-3 h-3" />
                     </a>
                   )}
                 </div>
               </div>
 
-              {/* Project Info */}
               <div className="p-6">
+                {/* Project number */}
+                <span className="text-[#902CB8]/50 text-xs font-mono tracking-wider mb-3 block">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#902CB8] transition-colors">
+                <h3 className="text-lg font-semibold theme-text mb-3 leading-tight">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                <p className="theme-text-dimmed text-sm leading-relaxed mb-5">
                   {project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full border border-gray-700 group-hover:border-[#902CB8]/50 group-hover:text-[#902CB8] transition-all"
+                      className="px-2.5 py-1 theme-card-inner text-[11px] font-medium rounded-md theme-text-muted"
                     >
                       {tech}
                     </span>
@@ -143,20 +175,19 @@ export default function ProjectsSection() {
         </div>
 
         {/* View All Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-14 text-center">
           <a
-            href="#"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[#902CB8] to-[#a83ec4] hover:from-[#7d1fa8] hover:to-[#9231b8] text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#902CB8]/30"
+            href="https://github.com/muhammadtayyabsandhu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/btn inline-flex items-center gap-3 px-7 py-3.5 bg-[#902CB8] hover:bg-[#7b25a0] text-white text-sm font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#902CB8]/20"
           >
-            View All Projects
-            <FaExternalLinkAlt className="w-4 h-4" />
+            <FaGithub className="w-4.5 h-4.5" />
+            View All Projects on GitHub
+            <FaArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
           </a>
         </div>
       </div>
-
-      {/* Background Effects */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#902CB8]/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#902CB8]/5 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 }

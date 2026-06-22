@@ -46,7 +46,7 @@ export default function TechStackSection() {
   const duplicatedTechs = [...technologies, ...technologies, ...technologies];
 
   return (
-    <section className="relative w-full pb-20 bg-gradient-to-bl from-slate-900 via-black to-slate-900 overflow-hidden">
+    <section className="relative w-full pb-20 theme-section-1 overflow-hidden">
       <style>{scrollAnimation}</style>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,10 +59,10 @@ export default function TechStackSection() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center gap-3 px-6 py-6 rounded-lg border border-gray-700 bg-gradient-to-r from-gray-900 to-gray-800 hover:border-[#902CB8] hover:shadow-lg hover:shadow-[#902CB8]/20 transition-all duration-300 flex-shrink-0 w-50 h-26"
+                  className="flex flex-col items-center justify-center gap-3 px-6 py-6 rounded-2xl theme-card transition-all duration-300 flex-shrink-0 w-50 h-26"
                 >
                   <IconComponent className="w-10 h-10 text-[#902CB8]" />
-                  <span className="text-white font-medium text-center text-sm whitespace-normal">
+                  <span className="theme-text font-medium text-center text-sm whitespace-normal">
                     {tech.name}
                   </span>
                 </div>

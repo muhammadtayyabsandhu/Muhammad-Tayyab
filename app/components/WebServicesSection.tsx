@@ -1,0 +1,293 @@
+"use client";
+
+import { useState } from "react";
+import {
+  SiWebflow,
+  SiWordpress,
+} from "react-icons/si";
+import {
+  FaPaintBrush,
+  FaShoppingCart,
+  FaRocket,
+  FaMobileAlt,
+  FaSearch,
+  FaCogs,
+  FaPlug,
+  FaPalette,
+  FaArrowRight,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+interface ServiceFeature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+interface ServicePlatform {
+  id: string;
+  name: string;
+  icon: React.ElementType;
+  tagline: string;
+  description: string;
+  gradient: string;
+  features: ServiceFeature[];
+  stats: { label: string; value: string }[];
+}
+
+const platforms: ServicePlatform[] = [
+  {
+    id: "webflow",
+    name: "Webflow",
+    icon: SiWebflow,
+    tagline: "Pixel-Perfect, No-Code Websites",
+    description:
+      "I design and develop stunning, responsive websites on Webflow — fully custom, visually polished, and optimized for performance. From landing pages to complex multi-page sites, I bring your vision to life with clean interactions and animations.",
+    gradient: "from-[#4353FF] to-[#146EF5]",
+    features: [
+      {
+        icon: FaPaintBrush,
+        title: "Custom Design",
+        description: "Unique, pixel-perfect layouts tailored to your brand identity",
+      },
+      {
+        icon: FaRocket,
+        title: "Animations & Interactions",
+        description: "Smooth scroll-based animations and micro-interactions",
+      },
+      {
+        icon: FaMobileAlt,
+        title: "Fully Responsive",
+        description: "Flawless experience across all devices and screen sizes",
+      },
+      {
+        icon: FaSearch,
+        title: "SEO Optimized",
+        description: "Built with clean structure and SEO best practices",
+      },
+    ],
+    stats: [
+      { label: "Projects Delivered", value: "15+" },
+      { label: "Client Satisfaction", value: "100%" },
+      { label: "Avg. Delivery", value: "5 Days" },
+    ],
+  },
+  {
+    id: "wordpress",
+    name: "WordPress",
+    icon: SiWordpress,
+    tagline: "Powerful, Scalable WordPress Solutions",
+    description:
+      "I build professional WordPress websites — from business sites and blogs to full-fledged e-commerce stores with WooCommerce. Custom themes, plugin development, speed optimization, and everything in between.",
+    gradient: "from-[#21759B] to-[#0073AA]",
+    features: [
+      {
+        icon: FaPalette,
+        title: "Custom Themes",
+        description: "Bespoke WordPress themes built from scratch or customized",
+      },
+      {
+        icon: FaShoppingCart,
+        title: "WooCommerce",
+        description: "Complete e-commerce solutions with payment integration",
+      },
+      {
+        icon: FaPlug,
+        title: "Plugin Integration",
+        description: "Custom plugin development and third-party integrations",
+      },
+      {
+        icon: FaCogs,
+        title: "Speed & Security",
+        description: "Performance optimization and security hardening",
+      },
+    ],
+    stats: [
+      { label: "Projects Delivered", value: "20+" },
+      { label: "E-Commerce Stores", value: "8+" },
+      { label: "Happy Clients", value: "25+" },
+    ],
+  },
+];
+
+const sectionAnimation = `
+  @keyframes float-service {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .float-animation {
+    animation: float-service 6s ease-in-out infinite;
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+`;
+
+export default function WebServicesSection() {
+  const [activePlatform, setActivePlatform] = useState<string>("webflow");
+
+  const active = platforms.find((p) => p.id === activePlatform) || platforms[0];
+  const PlatformIcon = active.icon;
+
+  return (
+    <section
+      id="web-services"
+      className="relative w-full py-20 theme-section-1 overflow-hidden"
+    >
+      <style>{sectionAnimation}</style>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-16 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full theme-card mb-6">
+            <span className="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
+            <span className="text-sm theme-text-muted font-medium">
+              Available for Projects
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold theme-text mb-4">
+            Webflow & WordPress
+          </h2>
+          <p className="theme-text-muted text-lg max-w-2xl mx-auto">
+            I also build professional websites on Webflow & WordPress — clean
+            design, fast delivery, and pixel-perfect results for your business.
+          </p>
+        </div>
+
+        {/* Platform Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex theme-card rounded-xl p-1.5 gap-2">
+            {platforms.map((platform) => {
+              const Icon = platform.icon;
+              return (
+                <button
+                  key={platform.id}
+                  onClick={() => setActivePlatform(platform.id)}
+                  className={`flex items-center gap-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer ${
+                    activePlatform === platform.id
+                      ? `bg-gradient-to-r ${platform.gradient} text-white shadow-lg`
+                      : "theme-text-muted hover:theme-text"
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  {platform.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Active Platform Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left - Info */}
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <div
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${active.gradient} flex items-center justify-center float-animation`}
+              >
+                <PlatformIcon className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold theme-text">
+                  {active.name}
+                </h3>
+                <p className="theme-text-muted text-sm">{active.tagline}</p>
+              </div>
+            </div>
+
+            <p className="theme-text-secondary leading-relaxed mb-8">
+              {active.description}
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              {active.stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="theme-card rounded-xl p-4 text-center"
+                >
+                  <div
+                    className={`text-2xl font-bold bg-gradient-to-r ${active.gradient} bg-clip-text text-transparent`}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-xs theme-text-dimmed mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <a
+              href="#contact"
+              className={`inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r ${active.gradient} text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105`}
+            >
+              Start a Project
+              <FaArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Right - Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {active.features.map((feature, index) => {
+              const FeatureIcon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className="group theme-card rounded-xl p-6"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${active.gradient} flex items-center justify-center mb-4`}
+                  >
+                    <FeatureIcon className="w-5 h-5 text-white" />
+                  </div>
+                  <h4 className="theme-text font-semibold mb-2">
+                    {feature.title}
+                  </h4>
+                  <p className="theme-text-muted text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* What You Get Section */}
+        <div className="mt-20 theme-card rounded-2xl p-8 sm:p-12">
+          <h3 className="text-2xl font-bold theme-text mb-8 text-center">
+            What You Get With Every Project
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Fully Responsive Design",
+              "SEO Optimized Structure",
+              "Fast Loading Speed",
+              "Cross-Browser Compatibility",
+              "Clean & Organized Code",
+              "Free Revisions",
+              "Post-Launch Support",
+              "On-Time Delivery",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <FaCheckCircle className="w-4 h-4 text-[#902CB8] flex-shrink-0" />
+                <span className="theme-text-secondary text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Background Effects */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#4353FF]/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#21759B]/5 rounded-full blur-3xl -z-10"></div>
+    </section>
+  );
+}

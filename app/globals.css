@@ -1,25 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  /* ===== DARK THEME (default) ===== */
+  :root,
+  .dark {
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0f;
+    --bg-card: #111116;
+    --bg-card-hover: #14141a;
+    --bg-card-inner: rgba(255, 255, 255, 0.03);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    --border-card: rgba(255, 255, 255, 0.06);
+    --border-card-hover: rgba(255, 255, 255, 0.12);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --text-dimmed: #6b7280;
+
+    --nav-bg: rgba(0, 0, 0, 0.8);
+    --section-from: #0f172a;
+    --section-via: #000000;
+    --section-to: #0f172a;
+
+    --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --input-placeholder: #6b7280;
+  }
+
+  /* ===== LIGHT THEME ===== */
+  .light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f5f5f7;
+    --bg-card-inner: rgba(0, 0, 0, 0.03);
+
+    --border-card: rgba(0, 0, 0, 0.08);
+    --border-card-hover: rgba(0, 0, 0, 0.15);
+
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --text-dimmed: #9ca3af;
+
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --section-from: #f0f1f5;
+    --section-via: #ffffff;
+    --section-to: #f0f1f5;
+
+    --shadow-float: 0 4px 24px rgba(0, 0, 0, 0.06);
+    --input-placeholder: #9ca3af;
   }
 }
 
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Expose CSS vars as Tailwind colors */
+  --color-t-primary: var(--text-primary);
+  --color-t-secondary: var(--text-secondary);
+  --color-t-muted: var(--text-muted);
+  --color-t-dimmed: var(--text-dimmed);
+
+  --color-c-bg: var(--bg-card);
+  --color-c-hover: var(--bg-card-hover);
+  --color-c-inner: var(--bg-card-inner);
+
+  --color-b-card: var(--border-card);
+  --color-b-card-hover: var(--border-card-hover);
+
+  --color-nav-bg: var(--nav-bg);
+
+  --color-s-from: var(--section-from);
+  --color-s-via: var(--section-via);
+  --color-s-to: var(--section-to);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode card shadow */
+.light .card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.light .card-shadow:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Input styling that works in both modes */
+input::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder) !important;
 }

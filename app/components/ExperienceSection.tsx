@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { MdDateRange } from "react-icons/md";
 
 interface ExperienceItem {
@@ -16,44 +15,43 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
-    dateRange: "Jan 2026 - March 2026",
-    title: "Full Stack Developer Intern",
-    company: "Elite Tech",
+    dateRange: "Jun 2024 - Dec 2024",
+    title: "Frontend Developer Intern",
+    company: "IntelliWeb Solution",
     description:
-      "Worked on developing and maintaining web applications using React.js and Node.js. Collaborated with senior developers to implement new features and optimize existing codebase.",
-    skills: ["React.js", "Node.js", "MongoDB", "Express.js", "Git"],
-    certificate: "/certificates/elite-tech.jpg",
+      "Started my professional journey as a Frontend Developer Intern, where I built responsive and interactive web interfaces. Gained hands-on experience with modern frontend technologies and frameworks, developing pixel-perfect UI components and collaborating with design teams to deliver polished user experiences.",
+    skills: ["HTML", "CSS", "JavaScript", "React.js", "Vue.js", "Bootstrap", "Responsive Design"],
   },
   {
     id: 2,
-    dateRange: "April 2026 - June 2026",
-    title: "Junior Full Stack Developer",
-    company: "Tech Solutions",
+    dateRange: "Jan 2025 - Jun 2025",
+    title: "MERN Stack Developer Intern",
+    company: "IIFA TECH",
     description:
-      "Developed responsive web applications and worked on backend optimization. Implemented REST APIs and database optimization techniques.",
-    skills: ["React.js", "Node.js", "PostgreSQL", "Docker", "AWS"],
+      "Expanded my skill set into full-stack development during a 6-month intensive internship. Built complete backend systems with RESTful APIs, implemented database architectures, and developed end-to-end web applications. Worked extensively with both NoSQL and SQL databases, strengthening my backend expertise.",
+    skills: ["Node.js", "Express.js", "MongoDB", "SQL", "PostgreSQL", "REST APIs", "MERN Stack"],
   },
   {
     id: 3,
-    dateRange: "July 2026 - Present",
+    dateRange: "Jun 2025 - Present",
     title: "Full Stack Developer",
-    company: "Digital Innovations",
+    company: "Devencods",
     description:
-      "Leading development of scalable web applications. Mentoring junior developers and implementing best practices for code quality and performance.",
-    skills: ["Next.js", "Node.js", "MongoDB", "TypeScript", "DevOps"],
+      "Working as a Full Stack Developer handling diverse client projects from development to deployment. Building and shipping production-ready full-stack applications using the MERN stack and Next.js. Integrated AI-powered features into web applications to enhance user experience and automate workflows. Responsible for end-to-end project delivery including architecture design, frontend & backend development, database management, and deployment pipelines.",
+    skills: ["Next.js", "React.js", "Node.js", "MongoDB", "Express.js", "TypeScript", "PostgreSQL", "AI Integration", "Git", "Deployment"],
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section className="relative w-full py-20 bg-gradient-to-br from-slate-900 via-black to-slate-900 overflow-hidden">
+    <section className="relative w-full py-20 theme-section-2 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold theme-text mb-4">
             Experience
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="theme-text-muted text-lg">
             2 Years of professional experience building web applications.
           </p>
         </div>
@@ -68,7 +66,7 @@ export default function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div key={exp.id} className="relative">
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-8 w-6 h-6 bg-[#902CB8] rounded-full transform -translate-x-2.5 md:-translate-x-3 border-4 border-black"></div>
+                <div className="absolute left-0 md:left-1/2 top-8 w-6 h-6 bg-[#902CB8] rounded-full transform -translate-x-2.5 md:-translate-x-3 border-4 border-[var(--bg-primary)]"></div>
 
                 {/* Content */}
                 <div
@@ -76,7 +74,7 @@ export default function ExperienceSection() {
                     index % 2 === 0 ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"
                   } md:w-1/2`}
                 >
-                  <div className="bg-gradient-to-br from-gray-900/50 to-slate-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-6 hover:border-[#902CB8]/50 transition-all duration-300">
+                  <div className="theme-card rounded-2xl p-6">
                     {/* Date */}
                     <div className="flex items-center gap-2 mb-3">
                       <MdDateRange className="w-4 h-4 text-[#902CB8]" />
@@ -86,7 +84,7 @@ export default function ExperienceSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold theme-text mb-2">
                       {exp.title}
                     </h3>
 
@@ -96,36 +94,21 @@ export default function ExperienceSection() {
                     </p>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    <p className="theme-text-muted text-sm leading-relaxed mb-4">
                       {exp.description}
                     </p>
 
                     {/* Skills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-2">
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full border border-gray-700 hover:border-[#902CB8]/50 transition-colors"
+                          className="px-2.5 py-1 theme-card-inner text-xs font-medium rounded-md theme-text-muted"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
-
-                    {/* Certificate Image */}
-                    {exp.certificate && (
-                      <div className="mt-4 pt-4 border-t border-gray-700">
-                        <p className="text-xs text-gray-500 mb-2">Certificate</p>
-                        <div className="relative w-full h-48 rounded-lg overflow-hidden border border-gray-700">
-                          <Image
-                            src={exp.certificate}
-                            alt={`${exp.company} Certificate`}
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

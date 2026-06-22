@@ -38,7 +38,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-start bg-gradient-to-br from-slate-900 via-black to-slate-900">
+    <section className="relative w-full min-h-screen flex items-center justify-start theme-section-1">
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -55,7 +55,7 @@ export default function AboutSection() {
               return (
                 <div key={index} className="flex flex-col items-center w-full">
                   {/* Circle with icon */}
-                  <div className="w-12 h-12 rounded-full bg-[#902CB8] flex items-center justify-center border-4 border-slate-900 relative z-20 flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-[#902CB8] flex items-center justify-center border-4 border-[var(--bg-primary)] relative z-20 flex-shrink-0">
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
 
@@ -76,7 +76,7 @@ export default function AboutSection() {
               {services.map((service, index) => {
                 return (
                   <div key={index} className="flex flex-col items-start justify-center h-24">
-                    <h3 className="text-xl font-light text-white">
+                    <h3 className="text-xl font-light theme-text">
                       {service.title}
                     </h3>
                   </div>
@@ -89,10 +89,10 @@ export default function AboutSection() {
           <div>
             {/* About Heading */}
             <div className="mb-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold theme-text mb-6">
                 About me
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg theme-text-secondary leading-relaxed">
                 I started my software journey from photography. Through that, I learned to
                 love the process of creating from scratch. Since then, this has led me to
                 software development as it fulfills my love for learning and building things.
@@ -104,14 +104,14 @@ export default function AboutSection() {
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="flex items-center justify-center mb-2">
-                    <span className="text-4xl font-bold text-white">
+                    <span className="text-4xl font-bold theme-text">
                       {stat.number}
                     </span>
                     <span className="text-3xl text-[#902CB8] font-bold ml-1">
                       {stat.symbol}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-400 whitespace-pre-line">
+                  <p className="text-sm theme-text-muted whitespace-pre-line">
                     {stat.label}
                   </p>
                 </div>
