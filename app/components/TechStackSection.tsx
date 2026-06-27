@@ -8,6 +8,8 @@ import {
   SiJson,
   SiReactquery,
   SiZod,
+  SiWebflow,
+  SiWordpress,
 } from "react-icons/si";
 
 const scrollAnimation = `
@@ -40,6 +42,8 @@ export default function TechStackSection() {
     { icon: SiJson, name: "JWT Auth" },
     { icon: SiReactquery, name: "TanStack Query" },
     { icon: SiZod, name: "Zod" },
+    { icon: SiWebflow, name: "Webflow" },
+    { icon: SiWordpress, name: "WordPress" },
   ];
 
   // Triple array for seamless infinite scrolling loop
@@ -48,9 +52,9 @@ export default function TechStackSection() {
   return (
     <section className="relative w-full pb-20 theme-section-1 overflow-hidden">
       <style>{scrollAnimation}</style>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Scrolling Container */}
         <div className="relative overflow-hidden">
           <div className="scroll-container flex gap-6 w-fit">

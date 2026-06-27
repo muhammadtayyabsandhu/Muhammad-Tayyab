@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPaperPlane } from "react-icons/fa";
 
 export default function GetInTouchSection() {
   const [formData, setFormData] = useState({
@@ -175,7 +175,7 @@ export default function GetInTouchSection() {
                 disabled={isSubmitting}
                 className="w-full bg-[#902CB8] hover:bg-[#7b25a0] text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
               >
-                <span>✈️</span>
+                <FaPaperPlane className="w-4 h-4" />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
 

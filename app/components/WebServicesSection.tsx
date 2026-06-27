@@ -4,6 +4,10 @@ import { useState } from "react";
 import {
   SiWebflow,
   SiWordpress,
+  SiMongodb,
+  SiReact,
+  SiVuedotjs,
+  SiNextdotjs,
 } from "react-icons/si";
 import {
   FaPaintBrush,
@@ -16,6 +20,14 @@ import {
   FaPalette,
   FaArrowRight,
   FaCheckCircle,
+  FaDatabase,
+  FaShieldAlt,
+  FaServer,
+  FaCloud,
+  FaLayerGroup,
+  FaBolt,
+  FaSyncAlt,
+  FaRegLightbulb,
 } from "react-icons/fa";
 
 interface ServiceFeature {
@@ -36,6 +48,114 @@ interface ServicePlatform {
 }
 
 const platforms: ServicePlatform[] = [
+  {
+    id: "mern",
+    name: "MERN Stack",
+    icon: SiReact,
+    tagline: "Full-Stack JavaScript Applications",
+    description:
+      "I build robust, scalable full-stack web applications using MongoDB, Express.js, React, and Node.js. From RESTful APIs to real-time dashboards and complex SPAs — I deliver production-ready apps that handle real business logic.",
+    gradient: "from-[#00684A] to-[#13AA52]",
+    features: [
+      {
+        icon: SiReact,
+        title: "React Frontend",
+        description: "Dynamic, component-driven UIs with Redux, Context API, and TanStack Query",
+      },
+      {
+        icon: FaServer,
+        title: "Node & Express API",
+        description: "Scalable REST APIs with JWT authentication and middleware architecture",
+      },
+      {
+        icon: FaDatabase,
+        title: "MongoDB Database",
+        description: "Schema design, indexing, aggregation pipelines, and Mongoose ODM",
+      },
+      {
+        icon: FaShieldAlt,
+        title: "Auth & Security",
+        description: "JWT, bcrypt, role-based access control, and input validation with Zod",
+      },
+    ],
+    stats: [
+      { label: "Full-Stack Projects", value: "10+" },
+      { label: "APIs Built", value: "20+" },
+      { label: "Happy Clients", value: "15+" },
+    ],
+  },
+  {
+    id: "nextjs",
+    name: "Next.js",
+    icon: SiNextdotjs,
+    tagline: "Modern Web Apps with Next.js",
+    description:
+      "I specialize in building high-performance, SEO-friendly web applications with Next.js — leveraging Server Components, App Router, API routes, and server-side rendering to create blazing-fast, production-grade applications.",
+    gradient: "from-[#333333] to-[#666666]",
+    features: [
+      {
+        icon: FaRocket,
+        title: "SSR & SSG",
+        description: "Server-side rendering and static generation for optimal SEO and speed",
+      },
+      {
+        icon: FaLayerGroup,
+        title: "App Router",
+        description: "Modern file-based routing with layouts, loading, and error states",
+      },
+      {
+        icon: FaCloud,
+        title: "API Routes",
+        description: "Built-in serverless API endpoints for backend functionality",
+      },
+      {
+        icon: FaBolt,
+        title: "Performance",
+        description: "Image optimization, code splitting, and edge deployment ready",
+      },
+    ],
+    stats: [
+      { label: "Next.js Projects", value: "8+" },
+      { label: "Lighthouse Score", value: "95+" },
+      { label: "On-Time Delivery", value: "100%" },
+    ],
+  },
+  {
+    id: "vuejs",
+    name: "Vue.js",
+    icon: SiVuedotjs,
+    tagline: "Progressive Vue.js Applications",
+    description:
+      "I develop clean, maintainable, and reactive frontend applications with Vue.js and the Composition API. From single-page applications to Nuxt.js powered full-stack solutions — I deliver elegant UIs with smooth user experiences.",
+    gradient: "from-[#35495E] to-[#41B883]",
+    features: [
+      {
+        icon: SiVuedotjs,
+        title: "Composition API",
+        description: "Modern Vue 3 with composables, reactive state, and script setup",
+      },
+      {
+        icon: FaSyncAlt,
+        title: "Pinia / Vuex",
+        description: "Centralized state management for scalable application architecture",
+      },
+      {
+        icon: FaRegLightbulb,
+        title: "Nuxt.js",
+        description: "Full-stack Vue apps with SSR, file routing, and auto-imports",
+      },
+      {
+        icon: FaMobileAlt,
+        title: "Responsive UI",
+        description: "Pixel-perfect, responsive interfaces optimized for all devices",
+      },
+    ],
+    stats: [
+      { label: "Vue.js Projects", value: "5+" },
+      { label: "Components Built", value: "100+" },
+      { label: "Client Satisfaction", value: "100%" },
+    ],
+  },
   {
     id: "webflow",
     name: "Webflow",
@@ -121,6 +241,11 @@ const sectionAnimation = `
     50% { opacity: 0.5; transform: scale(1.5); }
   }
 
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .float-animation {
     animation: float-service 6s ease-in-out infinite;
   }
@@ -128,10 +253,14 @@ const sectionAnimation = `
   .pulse-dot {
     animation: pulse-dot 2s ease-in-out infinite;
   }
+
+  .fade-in-up {
+    animation: fade-in-up 0.4s ease both;
+  }
 `;
 
 export default function WebServicesSection() {
-  const [activePlatform, setActivePlatform] = useState<string>("webflow");
+  const [activePlatform, setActivePlatform] = useState<string>("mern");
 
   const active = platforms.find((p) => p.id === activePlatform) || platforms[0];
   const PlatformIcon = active.icon;
@@ -153,30 +282,30 @@ export default function WebServicesSection() {
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold theme-text mb-4">
-            Webflow & WordPress
+            My Development Services
           </h2>
           <p className="theme-text-muted text-lg max-w-2xl mx-auto">
-            I also build professional websites on Webflow & WordPress — clean
-            design, fast delivery, and pixel-perfect results for your business.
+            From full-stack web apps and modern JavaScript frameworks to
+            pixel-perfect no-code sites — I deliver end-to-end solutions
+            tailored to your business goals.
           </p>
         </div>
 
         {/* Platform Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex theme-card rounded-xl p-1.5 gap-2">
+          <div className="inline-flex flex-wrap justify-center theme-card rounded-xl p-1.5 gap-2">
             {platforms.map((platform) => {
               const Icon = platform.icon;
               return (
                 <button
                   key={platform.id}
                   onClick={() => setActivePlatform(platform.id)}
-                  className={`flex items-center gap-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer ${
-                    activePlatform === platform.id
+                  className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer ${activePlatform === platform.id
                       ? `bg-gradient-to-r ${platform.gradient} text-white shadow-lg`
                       : "theme-text-muted hover:theme-text"
-                  }`}
+                    }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                   {platform.name}
                 </button>
               );
@@ -185,7 +314,10 @@ export default function WebServicesSection() {
         </div>
 
         {/* Active Platform Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div
+          key={activePlatform}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-up"
+        >
           {/* Left - Info */}
           <div>
             <div className="flex items-center gap-4 mb-6">
@@ -287,7 +419,7 @@ export default function WebServicesSection() {
 
       {/* Background Effects */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#4353FF]/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#21759B]/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#13AA52]/5 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 }

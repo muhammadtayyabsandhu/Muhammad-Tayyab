@@ -21,7 +21,7 @@ export default function AboutSection() {
 
   const stats = [
     {
-      number: "120",
+      number: "20",
       symbol: "+",
       label: "Completed\nProjects",
     },
@@ -31,7 +31,7 @@ export default function AboutSection() {
       label: "Client\nsatisfaction",
     },
     {
-      number: "10",
+      number: "2",
       symbol: "+",
       label: "Years of\nexperience",
     },
@@ -44,32 +44,32 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Services Timeline */}
           <div className="flex gap-8">
-          {/* Timeline Line */}
-          <div className="relative flex flex-col items-center w-12">
-            {/* Top line segment */}
-            <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-[#902CB8]"></div>
+            {/* Timeline Line */}
+            <div className="relative flex flex-col items-center w-12">
+              {/* Top line segment */}
+              <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-[#902CB8]"></div>
 
-            {/* Timeline items with icons */}
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <div key={index} className="flex flex-col items-center w-full">
-                  {/* Circle with icon */}
-                  <div className="w-12 h-12 rounded-full bg-[#902CB8] flex items-center justify-center border-4 border-[var(--bg-primary)] relative z-20 flex-shrink-0">
-                    <IconComponent className="w-6 h-6 text-white" />
+              {/* Timeline items with icons */}
+              {services.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <div key={index} className="flex flex-col items-center w-full">
+                    {/* Circle with icon */}
+                    <div className="w-12 h-12 rounded-full bg-[#902CB8] flex items-center justify-center border-4 border-[var(--bg-primary)] relative z-20 flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+
+                    {/* Line segment after circle (except last) */}
+                    {index < services.length - 1 && (
+                      <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-[#902CB8]"></div>
+                    )}
                   </div>
+                );
+              })}
 
-                  {/* Line segment after circle (except last) */}
-                  {index < services.length - 1 && (
-                    <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-[#902CB8]"></div>
-                  )}
-                </div>
-              );
-            })}
-
-            {/* Bottom line segment */}
-            <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-transparent"></div>
-          </div>
+              {/* Bottom line segment */}
+              <div className="w-1 h-24 bg-gradient-to-b from-[#902CB8] to-transparent"></div>
+            </div>
 
             {/* Service Cards */}
             <div className="flex flex-col gap-12 pt-0">
@@ -93,9 +93,8 @@ export default function AboutSection() {
                 About me
               </h2>
               <p className="text-lg theme-text-secondary leading-relaxed">
-                I started my software journey from photography. Through that, I learned to
-                love the process of creating from scratch. Since then, this has led me to
-                software development as it fulfills my love for learning and building things.
+                My journey into software development began with a passion for creating meaningful digital experiences. Today, I specialize in building modern, high-performance web applications using Next.js, React, Node.js, MongoDB, Webflow, and WordPress. I enjoy turning complex ideas into simple, scalable, and user-friendly solutions that help businesses grow, improve customer experience, and achieve their goals. Every project I build is driven by clean code, thoughtful design, and a commitment to delivering real business value.
+
               </p>
             </div>
 

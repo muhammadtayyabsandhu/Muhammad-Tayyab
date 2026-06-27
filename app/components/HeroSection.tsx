@@ -6,11 +6,11 @@ import { FaBriefcase } from "react-icons/fa";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center theme-section-1">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-0 pt-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section className="relative w-full min-h-screen flex items-center lg:items-end justify-center theme-section-1">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-0 pt-8 lg:pt-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center lg:items-end w-full">
           {/* Left Content */}
-          <div className="w-full">
+          <div className="w-full lg:self-center">
             <div className="mb-4">
               <p className="text-xl theme-text font-light flex items-center gap-2">
                 Hello <span className="w-3 h-3 rounded-full bg-[#902CB8]"></span>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Image */}
-          <div className="w-full flex justify-center lg:justify-end relative h-86 lg:h-screen">
+          <div className="w-full flex justify-center lg:justify-end items-end relative h-86 lg:h-[calc(100vh-64px)] lg:self-end">
             {/* Tech Icons Background */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
               <SiReact className="absolute top-10 left-10 w-20 h-20 opacity-20 text-[#902CB8] animate-pulse" />
@@ -70,12 +70,12 @@ export default function HeroSection() {
             </div>
 
             {/* Profile Image */}
-            <div className="relative w-full max-w-md z-10">
+            <div className="relative w-full max-w-md z-10 h-full">
               <Image
                 src="/profile.png"
                 alt="Muhammad Tayyab"
                 fill
-                className="object-contain"
+                className="object-contain object-bottom"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
