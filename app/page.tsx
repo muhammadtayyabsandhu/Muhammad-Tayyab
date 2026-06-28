@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import WebServicesSection from "./components/WebServicesSection";
+import WorkProcessSection from "./components/WorkProcessSection";
 import GetInTouchSection from "./components/GetInTouchSection";
 import FooterSection from "./components/FooterSection";
 import FloatingContact from "./components/FloatingContact";
@@ -19,6 +20,7 @@ export default function Home() {
       <ExperienceSection />
       <ProjectsSection />
       <WebServicesSection />
+      <WorkProcessSection />
        {/* Skills Scroll Bar */}
       <div className="absolute bottom-0 w-full">
       </div>

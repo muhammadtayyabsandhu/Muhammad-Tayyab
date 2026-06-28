@@ -301,8 +301,8 @@ export default function WebServicesSection() {
                   key={platform.id}
                   onClick={() => setActivePlatform(platform.id)}
                   className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer ${activePlatform === platform.id
-                      ? `bg-gradient-to-r ${platform.gradient} text-white shadow-lg`
-                      : "theme-text-muted hover:theme-text"
+                    ? `bg-gradient-to-r ${platform.gradient} text-white shadow-lg`
+                    : "theme-text-muted hover:theme-text"
                     }`}
                 >
                   <Icon className="w-4 h-4" />

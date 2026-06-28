@@ -15,65 +15,78 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 1,
-    title: "E-Commerce Platform",
+    id: 107,
+    title: "Gigaboost",
     description:
-      "A full-stack e-commerce platform with product listings, shopping cart, and secure payment integration. Built with React and Node.js.",
-    image: "/projects/ecommerce.jpg",
-    technologies: ["React.js", "Node.js", "MongoDB", "Stripe", "Redux"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "An AI-powered MERN stack platform connecting users with potential investors. Features seamless Google Login, secure payment integration, and backend AI integration to dynamically extract investor email data from the database for paid subscribers.",
+    image: "/projects/gigaboost.jpg",
+    technologies: ["MERN Stack", "AI Integration", "Google Auth", "Payment Integration", "Node.js", "MongoDB"],
+    liveLink: "https://gigaboost.ai/",
   },
   {
-    id: 2,
-    title: "Task Management App",
+    id: 0,
+    title: "Growth Turbine",
     description:
-      "A collaborative task management application with real-time updates, user authentication, and team collaboration features.",
-    image: "/projects/taskapp.jpg",
-    technologies: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "A high-converting website built on Webflow featuring custom UI/UX design, scroll animations, SEO optimization, and seamless form-to-CRM lead generation integration.",
+    image: "/projects/growth-turbine.jpg",
+    technologies: ["Webflow", "UI/UX Design", "CRM Integration", "SEO", "Animations"],
+    liveLink: "https://growthturbine.com",
   },
   {
-    id: 3,
-    title: "Social Media Dashboard",
+    id: 101,
+    title: "SPACR",
     description:
-      "Analytics dashboard for managing multiple social media accounts with real-time statistics and insights.",
-    image: "/projects/dashboard.jpg",
-    technologies: ["React.js", "Chart.js", "Node.js", "PostgreSQL"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "A Next.js platform for a Dubai-based agency, bringing Amazon products to unsupported countries. Features custom SVG design enhancements and seamless REST API integration for product data extraction.",
+    image: "/projects/spa.jpg",
+    technologies: ["Next.js", "REST API", "Custom SVGs", "E-Commerce", "Data Extraction"],
+    liveLink: "https://spacr.vercel.app/",
   },
   {
-    id: 4,
-    title: "Real-Time Chat Application",
+    id: 102,
+    title: "Rahat Gallary",
     description:
-      "A real-time messaging app with group chats, media sharing, typing indicators, and online status built with Socket.io.",
-    image: "/projects/chat.jpg",
-    technologies: ["React.js", "Node.js", "Socket.io", "MongoDB", "Express.js"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "A full-stack Next.js e-commerce store with a custom admin panel, secure payment integration, and comprehensive order management. Features robust authentication and authorization.",
+    image: "/projects/rahat-gallary.jpg",
+    technologies: ["Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Redux"],
+    liveLink: "https://rahat-gallery.vercel.app/",
   },
   {
-    id: 5,
-    title: "AI-Powered Blog Platform",
+    id: 103,
+    title: "151 Coffee",
     description:
-      "A modern blogging platform with AI-generated content suggestions, rich text editor, SEO optimization, and user analytics.",
-    image: "/projects/blog.jpg",
-    technologies: ["Next.js", "OpenAI API", "PostgreSQL", "TypeScript"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "An interactive Webflow website focused on premium design and animations. Leveraged custom embedded code for advanced styling, optimized SEO, and improved page navigation for a seamless user experience.",
+    image: "/projects/151-coffee.jpg",
+    technologies: ["Webflow", "UI/UX Design", "Custom Code", "Animations", "SEO"],
+    liveLink: "https://www.151coffee.com/",
   },
   {
-    id: 6,
-    title: "Portfolio & CMS Dashboard",
+    id: 104,
+    title: "Desi Mirch Masala",
     description:
-      "A custom content management system with an admin dashboard for managing projects, blogs, and client testimonials.",
-    image: "/projects/cms.jpg",
-    technologies: ["Next.js", "Node.js", "MongoDB", "Cloudinary", "JWT"],
-    githubLink: "https://github.com",
-    liveLink: "https://example.com",
+      "A robust MERN stack e-commerce store utilizing Redux Toolkit for state management. Features include secure payment integration, map integration for accurate delivery/location, comprehensive product management, advanced SEO optimization, and complete hosting/deployment.",
+    image: "/projects/desi-mirch-masala.jpg",
+    technologies: ["MERN Stack", "Redux Toolkit", "Payment Integration", "Map Integration", "Product Management", "SEO"],
+    liveLink: "https://desimirchmasala.com/",
   },
+  {
+    id: 105,
+    title: "Global News Portal",
+    description:
+      "A dynamic MERN stack news application delivering real-time articles across various categories. Built with React and Redux for seamless state management, featuring user authentication, an admin dashboard for content management, and robust data handling with Node.js and MongoDB.",
+    image: "/projects/news-website.jpg",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT Auth", "REST API"],
+    liveLink: "https://news-website-alpha-ten.vercel.app/",
+  },
+  {
+    id: 106,
+    title: "Azeem Steel",
+    description:
+      "A specialized React application developed for a scrap metal and steel trading business. Features a highly polished UI/UX design, secure payment gateway integration for seamless transactions, dynamic routing, and an optimized component architecture for lightning-fast performance.",
+    image: "/projects/azeem-steel.jpg",
+    technologies: ["React.js", "UI/UX Design", "Payment Integration", "Tailwind CSS", "React Router"],
+    liveLink: "https://azeem-scrap.vercel.app/",
+  },
+
 ];
 
 export default function ProjectsSection() {
@@ -106,12 +119,12 @@ export default function ProjectsSection() {
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#902CB8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
               {/* Project Image */}
-              <div className="relative w-full h-48 overflow-hidden" style={{ background: 'var(--bg-card-inner)' }}>
+              <div className="relative w-full h-60 overflow-hidden" style={{ background: 'var(--bg-card-inner)' }}>
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent"></div>
 
@@ -144,7 +157,7 @@ export default function ProjectsSection() {
 
               <div className="p-6">
                 {/* Project number */}
-                <span className="text-[#902CB8]/50 text-xs font-mono tracking-wider mb-3 block">
+                <span className="text-white/70 text-xs font-mono tracking-wider mb-3 block">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
