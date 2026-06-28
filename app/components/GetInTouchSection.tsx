@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
-import { FaGithub, FaLinkedin, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaPaperPlane } from "react-icons/fa";
 
 export default function GetInTouchSection() {
   const [formData, setFormData] = useState({
@@ -99,6 +99,24 @@ export default function GetInTouchSection() {
                   <p className="theme-text-secondary">Lahore, Pakistan</p>
                 </div>
               </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <FaWhatsapp className="w-6 h-6 text-[#902CB8]" />
+                </div>
+                <div>
+                  <p className="theme-text font-medium">WhatsApp</p>
+                  <a
+                    href="https://wa.me/923026633640"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="theme-text-secondary hover:text-[#902CB8] transition-colors"
+                  >
+                    +92 302 6633640
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Social Links */}
@@ -106,7 +124,7 @@ export default function GetInTouchSection() {
               <p className="theme-text-muted text-sm mb-4">Follow me on</p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/muhammadtayyabsandhu"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl theme-card flex items-center justify-center theme-text-muted hover:text-[#902CB8] transition-all"
@@ -115,7 +133,7 @@ export default function GetInTouchSection() {
                   <FaGithub className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/muhammad-tayyab-43a141284"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl theme-card flex items-center justify-center theme-text-muted hover:text-[#902CB8] transition-all"
